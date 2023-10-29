@@ -1,3 +1,4 @@
+import 'package:eat/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -123,7 +124,14 @@ class LoginWidget extends StatelessWidget {
                 ),
               ),
               minimumSize: MaterialStateProperty.all(Size(150, 40))),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Profilepage(),
+              ),
+            );
+          },
           child: Text(
             "Log In",
             style: TextStyle(color: Colors.white),
@@ -158,6 +166,87 @@ class SignupWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("Sign Up");
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 20,
+          ),
+          TextField(
+            decoration: InputDecoration(
+              hintText: "Enter email or Username",
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          TextField(
+            decoration: InputDecoration(
+              hintText: "Enter password",
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          TextField(
+            decoration: InputDecoration(
+              hintText: "Confirm password",
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          SizedBox(
+            width: 150,
+            child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.red),
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                // maximumSize: MaterialStateProperty.all(
+                //   Size(150, 40),
+                // ),
+                // minimumSize: MaterialStateProperty.all(
+                //   Size(150, 40),
+                // ),
+                //   fixedSize: MaterialStateProperty.all(
+                //   Size(150, 40),
+                // ),
+              ),
+              onPressed: () {},
+              child: Text(
+                "Sign Up",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
+          SizedBox(height: 5),
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              "OR",
+              style: TextStyle(color: Colors.grey),
+            ),
+          ),
+          SizedBox(height: 5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: Image.asset("assets/G.png"),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Image.asset("assets/f.png"),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
